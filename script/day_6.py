@@ -41,7 +41,7 @@ def countsAll(forms_1: list, responders: list) -> int:
             formAllResponded = []
     return sum(allResponded)
 
-with open("test_input_6.txt") as f:
+with open("puzzle6_input.txt") as f:
     rows = [i.strip('\n') for i in f]
 
 forms = getForms1(rows)
