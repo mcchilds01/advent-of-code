@@ -23,35 +23,29 @@ def getForms2(forms_list: list) -> list:
     return customsForms
 
 def getCountsAny(forms_1: list) -> int:
-    counts = []
-    for i in range(len(forms)):
-        counts.append(len(set(forms[i])))
+    counts = [len(set(forms[i])) for i in range(len(forms))]
     return sum(counts)
 
 def getResponders(rows: list) -> list:
     forms_2 = getForms2(rows)
-    responders = []
-    for i in range(len(forms_2)):
-        responders.append(len(forms_2[i]))
+    responders = [len(forms_2[i]) for i in range(len(forms_2))]
     return responders
 
 def countsAll(forms_1: list, responders: list) -> int:
-    formAllResponded = []
     allResponded = []
     for i in range(len(forms)):
-        for j in range(len(forms[i])):
-            if forms[i].count(forms[i][j]) == totalResponders[i]:
-                formAllResponded += forms[i][j]
+        formAllResponded = [forms[i][j] for j in range(len(forms[i])) 
+            if forms[i].count(forms[i][j]) == totalResponders[i]]
         if formAllResponded: 
             allResponded.append(len(set(formAllResponded)))
             formAllResponded = []
     return sum(allResponded)
 
-with open("puzzle6_input.txt") as f:
+with open("test_input_6.txt") as f:
     rows = [i.strip('\n') for i in f]
 
 forms = getForms1(rows)
-print(getCountsAny(forms))
+print('Part I:', getCountsAny(forms))
 
 totalResponders = getResponders(rows)
-print(countsAll(forms, totalResponders))
+print('Part II:', countsAll(forms, totalResponders))
