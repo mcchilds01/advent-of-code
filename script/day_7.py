@@ -1,3 +1,5 @@
+'''Syntax and format of getTotalOutside() thanks to @enceladosaurus, https://github.com/enceladosaurus/AdventOfCode/blob/master/2020/puzzle7.py'''
+
 with open('puzzle7_input.txt') as f:
     rules = [i.strip() for i in f]
 
