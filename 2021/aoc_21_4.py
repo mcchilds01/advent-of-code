@@ -1,4 +1,4 @@
-with open('trial_input_4.txt', 'r') as f:
+with open('input_4.txt', 'r') as f:
 	inputs =  [i.strip() for i in f]
 
 numbers = [i for i in inputs[0].split(',')]
